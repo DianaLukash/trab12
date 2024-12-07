@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #a52bfa;
+            transition: background 3s; 
+        }
+
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificar se é Par ou Ímpar</h1>
+    <input type="number" id="numero" placeholder="Inserir um número" />
+    <button onclick="verificar()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificar() {
+            const numero = parseInt(document.getElementById('numero').value);
+            const resultado = document.getElementById('resultado');
+            
+            if (isNaN(numero)) {
+                resultado.textContent = "Número inválido";
+                return;
+            }
+
+            if (numero % 2 === 0) {
+                document.body.className = 'par'; 
+                resultado.textContent = `O número ${numero} é Par.`;
+                document.body.style.backgroundColor = '#19bdc0';
+            } else {
+                document.body.className = 'impar';
+                resultado.textContent = `O número ${numero} é Ímpar.`;
+                document.body.style.backgroundColor = '#fa902b';
+            }
+        } 
+    </script>
+</body>
+</html>
